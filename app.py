@@ -1,8 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 from tensorflow import keras
-from keras.applications.resnet50 import preprocess_input
-from PIL import Image
+# from keras.applications.resnet50 import preprocess_input
 import cv2
 import numpy as np
 
@@ -25,7 +24,7 @@ if __name__ == "__main__":
             img = np.array(img)
             img = cv2.resize(img,(256,256))
 
-            img = preprocess_input(img)
+            # img = preprocess_input(img)
             img = np.reshape(img,(1,256,256,3))
             predictions = model.predict(img)
         
