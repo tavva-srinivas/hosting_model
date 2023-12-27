@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 from tensorflow import keras
 # from keras.applications.resnet50 import preprocess_input
+from PIL import Image
 import cv2
 import numpy as np
 
@@ -26,7 +27,7 @@ if __name__ == "__main__":
 
             # img = preprocess_input(img)
             img = np.reshape(img,(1,256,256,3))
-            predictions = model.predict(img)
+            predictions = model.predict(img/255.0)
         
             if predictions>0.5:
                 st.write("Predictions:","INFECTED")
